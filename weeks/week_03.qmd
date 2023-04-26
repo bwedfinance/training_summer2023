@@ -1,13 +1,13 @@
 ---
-title: "Week 02"
-subtitle: "Basic data analysis and visualization in R"
-description: "June 13"
+title: "Week 03"
+subtitle: "Deep-dive on education finance and weighted student funding"
+description: "June 20"
 author: ""
 date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/week_02/*.qmd
+      - ../slides/week_03/*.qmd
     type: table
     fields: [title, date]
     field-display-names:
