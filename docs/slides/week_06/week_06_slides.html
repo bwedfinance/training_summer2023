@@ -10,8 +10,8 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.318">
 
-  <meta name="dcterms.date" content="2023-05-29">
-  <title>School Finance Equity Training, Summer 2023 - Bellwether Education Finance R Training</title>
+  <meta name="dcterms.date" content="2023-07-11">
+  <title>School Finance Equity Training, Summer 2023 - Reproducible data analysis in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,8 @@
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -325,36 +327,175 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Bellwether Education Finance R Training</h1>
+  <h1 class="title">Reproducible data analysis in R</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2023-05-29</p>
+  <p class="date">2023-07-11</p>
 </section>
-<section id="meet-your-instructors" class="slide level2">
-<h2>Meet your instructors</h2>
+<section>
+<section id="homework-review" class="title-slide slide level1 center">
+<h1>Homework Review</h1>
+
 </section>
-<section id="what-to-expect-in-this-class" class="slide level2">
-<h2>What to expect in this class</h2>
+<section id="solving-a-common-problem-with-the-homework" class="slide level2">
+<h2>Solving a common problem with the homework</h2>
+</section></section>
+<section>
+<section id="what-should-the-futur-eof-school-finance-equity-look-like" class="title-slide slide level1 center">
+<h1>What should the futur eof school finance equity look like?</h1>
+
 </section>
-<section id="software-to-download" class="slide level2">
-<h2>Software to download</h2>
+<section id="httpsshiny.rstudio.comimagesrmdint-template.png" class="slide level2">
+<h2>https://shiny.rstudio.com/images/rmdint-template.png</h2>
+</section></section>
+<section>
+<section id="making-maps-with-edbuildmapr" class="title-slide slide level1 center">
+<h1>Making maps with edbuildmapr</h1>
+
 </section>
-<section id="installing-r-and-rstudio" class="slide level2">
-<h2>Installing R and RStudio</h2>
+<section id="much-like-edbuildr-the-edbuildmapr-package-makes-it-eaier-to-perform-spatial-analysis-of-education-data" class="slide level2">
+<h2>Much like ‘edbuildr’, the ‘edbuildmapr’ package makes it eaier to perform spatial analysis of education data</h2>
+<ul>
+<li>R can use objects called “shapfiles” to create maps</li>
+<li>The ‘edbuildmapr’ package makes it easy to produce high-quality maps as you analyze school finance data.</li>
+<li>To get started, you will need to install two packages:
+<ul>
+<li><p><strong>edbuildmapr</strong>: Simplifies the use of school district shapefiles.</p></li>
+<li><p><strong>sf:</strong> Standardizes how to encode spatial vector data.</p></li>
+</ul></li>
+</ul>
 </section>
-<section id="installing-git" class="slide level2">
-<h2>Installing Git</h2>
+<section id="live-coding-example-making-maps-with-edbuildmapr" class="slide level2">
+<h2>LIVE CODING EXAMPLE: Making maps with edbuildmapr</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `shapefile_1819' from data source 
+  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/RtmpRl6Axj/file68f217609314/shapefile_1819.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 13315 features and 6 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961
+Geodetic CRS:  NAD83</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Classes 'sf' and 'data.frame':  339 obs. of  44 variables:
+ $ geoid      : chr  "2727001" "2727002" "2727003" "2727004" ...
+ $ name       : chr  "Park Rapids Public School District in Pine Point (9-12)" "Clinton-Graceville-Beardsley-Wheaton-Sisseton/Wilmot (SD) in Browns Valley (9-12)" "Minneota-Ivanhoe Public School Districts in Ivanhoe (7-12)" "Marshall-Minneota-RTR Public Schools in Lynd (9-12)" ...
+ $ sdtype     : chr  "secon" "secon" "secon" "secon" ...
+ $ fips       : chr  "27" "27" "27" "27" ...
+ $ state      : chr  "Minnesota" "Minnesota" "Minnesota" "Minnesota" ...
+ $ postal     : chr  "MN" "MN" "MN" "MN" ...
+ $ state_id   : chr  NA NA NA NA ...
+ $ county     : chr  NA NA NA NA ...
+ $ conum      : int  NA NA NA NA NA NA NA 27105 27155 27081 ...
+ $ enroll     : int  NA NA NA NA NA NA NA 342 173 91 ...
+ $ lrpp       : num  NA NA NA NA NA ...
+ $ srpp       : num  NA NA NA NA NA ...
+ $ slrpp      : num  NA NA NA NA NA ...
+ $ lr         : num  NA NA NA NA NA ...
+ $ sr         : num  NA NA NA NA NA ...
+ $ slr        : num  NA NA NA NA NA ...
+ $ srpp_cola  : num  NA NA NA NA NA ...
+ $ lrpp_cola  : num  NA NA NA NA NA ...
+ $ slrpp_cola : num  NA NA NA NA NA ...
+ $ dtype      : chr  NA NA NA NA ...
+ $ urb        : chr  NA NA NA NA ...
+ $ op_shcls   : int  NA NA NA NA NA NA NA 2 2 1 ...
+ $ enroll_ccd : int  NA NA NA NA NA NA NA 342 173 91 ...
+ $ dlep       : int  NA NA NA NA NA NA NA 105 NA NA ...
+ $ dwhite     : int  NA NA NA NA NA NA NA 89 72 87 ...
+ $ dblack     : int  NA NA NA NA NA NA NA 6 1 NA ...
+ $ dhispanic  : int  NA NA NA NA NA NA NA 231 1 4 ...
+ $ dasian_pi  : int  NA NA NA NA NA NA NA 6 1 NA ...
+ $ dhaw_pi    : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ damind_ak  : int  NA NA NA NA NA NA NA 1 98 NA ...
+ $ d2races    : int  NA NA NA NA NA NA NA 9 NA NA ...
+ $ pctnw      : num  NA NA NA NA NA ...
+ $ tpop       : int  NA NA NA NA NA NA NA 1676 732 1226 ...
+ $ stpop      : int  NA NA NA NA NA NA NA 323 110 211 ...
+ $ stpov      : int  NA NA NA NA NA NA NA 49 24 11 ...
+ $ stpovrate  : num  NA NA NA NA NA ...
+ $ mhi        : int  26477 52188 56000 70833 62500 62813 52404 62813 52188 56000 ...
+ $ mpv        : int  107200 71100 78500 206300 123800 115800 126700 115800 71100 78500 ...
+ $ sd_area    : num  4.9 53.5 148.3 72.4 87.5 ...
+ $ st_per_sqmi: num  NA NA NA NA NA ...
+ $ diep       : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ year       : chr  "2019" "2019" "2019" "2019" ...
+ $ geometry   :sfc_MULTIPOLYGON of length 339; first list element: List of 1
+  ..$ :List of 1
+  .. ..$ : num [1:14, 1:2] -95.4 -95.4 -95.4 -95.4 -95.4 ...
+  ..- attr(*, "class")= chr [1:3] "XY" "MULTIPOLYGON" "sfg"
+ $ frl_rate   : logi  NA NA NA NA NA NA ...
+ - attr(*, "sf_column")= chr "geometry"
+ - attr(*, "agr")= Factor w/ 3 levels "constant","aggregate",..: NA NA NA NA NA NA NA NA NA NA ...
+  ..- attr(*, "names")= chr [1:43] "geoid" "name" "sdtype" "fips" ...</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-2.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-3.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-4.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-5.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-6.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-7.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="week_06_slides_files/figure-revealjs/unnamed-chunk-1-8.png" width="960"></p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="setting-up-your-data-processing-project" class="title-slide slide level1 center">
+<h1>Setting up your data processing project</h1>
+
 </section>
-<section id="register-for-github" class="slide level2">
-<h2>Register for GitHub</h2>
+<section id="before-you-start-cleaning-your-states-data-set-yourseful-up-for-a-successful-reproducible-analysis-project" class="slide level2">
+<h2>Before you start cleaning your state’s data, set yourseful up for a successful, reproducible analysis project</h2>
+<ul>
+<li>Every new data analysis proejct shoudl live in its own RStudio project</li>
+<li>File -&gt; New Project…</li>
+</ul>
+
+<img data-src="https://bookdown.org/gmli64/do_a_data_science_project_in_10_days/Capture/NewProject.png" class="r-stretch"></section>
+<section id="remember-after-youve-created-a-project-use-a-consistent-folder-structure-to-keep-your-analysis-organized" class="slide level2">
+<h2>Remember: After you’ve created a project, use a consistent folder structure to keep your analysis organized</h2>
+
+<img data-src="https://i.stack.imgur.com/AlNMJ.png" class="r-stretch"></section>
+<section id="another-layer-of-organization-keep-your-raw-data-and-your-processed-data-separate" class="slide level2">
+<h2>Another layer of organization: Keep your raw data and your processed data separate!</h2>
+<ul>
+<li>Use sub-folders within your “data” folder to keep your raw data files separated from any processed data files you produce during your analysis.</li>
+<li>This creates additional procedural barrier to accidentally over-writing your raw data.</li>
+<li>Use the “processed” data folder for exporting clean data or results of your analysis, like summary tables.</li>
+</ul>
+
+<img data-src="https://image.slidesharecdn.com/analysinggithubcommitswithr-150510082035-lva1-app6892/95/analysing-github-commits-with-r-5-638.jpg?cb=1431246219" class="r-stretch"></section>
+<section id="r-markdown-is-a-special-file-type-that-allows-you-to-combine-code-with-plain-text-to-create-reports" class="slide level2">
+<h2>R Markdown is a special file type that allows you to combine code with plain text to create reports</h2>
+
+<img data-src="https://shiny.rstudio.com/images/rmdint-template.png" class="r-stretch"></section></section>
+<section id="homework" class="title-slide slide level1 center">
+<h1>Homework</h1>
+
 </section>
-<section id="connecting-rstudio-and-github" class="slide level2">
-<h2>Connecting RStudio and GitHub</h2>
-</section>
-<section id="joining-our-github-classroom" class="slide level2">
-<h2>Joining our GitHub Classroom</h2>
+
+<section id="state-team-meetings" class="title-slide slide level1 center">
+<h1>State team meetings</h1>
 
 
 <img src="../../images/primary_full-color.png" class="slide-logo r-stretch"><div class="footer footer-default">
@@ -371,6 +512,7 @@
   <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -392,7 +534,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -563,7 +706,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -572,6 +715,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

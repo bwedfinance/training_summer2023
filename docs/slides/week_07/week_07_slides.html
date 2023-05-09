@@ -10,8 +10,8 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.318">
 
-  <meta name="dcterms.date" content="2023-05-29">
-  <title>School Finance Equity Training, Summer 2023 - Bellwether Education Finance R Training</title>
+  <meta name="dcterms.date" content="2023-06-27">
+  <title>School Finance Equity Training, Summer 2023 - Analyzing state education funding data with plotly</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,6 +34,8 @@
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -325,36 +327,251 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Bellwether Education Finance R Training</h1>
+  <h1 class="title">Analyzing state education funding data with plotly</h1>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">2023-05-29</p>
+  <p class="date">2023-06-27</p>
 </section>
-<section id="meet-your-instructors" class="slide level2">
-<h2>Meet your instructors</h2>
+<section>
+<section id="homework-review" class="title-slide slide level1 center">
+<h1>Homework Review</h1>
+
 </section>
-<section id="what-to-expect-in-this-class" class="slide level2">
-<h2>What to expect in this class</h2>
+<section id="overview-of-homework" class="slide level2">
+<h2>Overview of Homework</h2>
+</section></section>
+<section>
+<section id="introduction-to-sf-and-leaflet" class="title-slide slide level1 center">
+<h1>Introduction to sf and leaflet</h1>
+
 </section>
-<section id="software-to-download" class="slide level2">
-<h2>Software to download</h2>
+<section id="overview-of-sf-package" class="slide level2">
+<h2>Overview of <strong>sf</strong> package</h2>
+<ul>
+<li>There are many R packages that handle spatial data. However, <strong>sf</strong> is the most modern and easy-to-use package.</li>
+<li>In the <strong>sf</strong> package, spatial data is represented as a simple feature:
+<ul>
+<li>A set of standards on how to store spatial objects.</li>
+</ul></li>
+<li>Spatial data is represented as a data frame with:
+<ul>
+<li><p>A geometry column that lists all the coordinates that make up the shape.</p></li>
+<li><p>Slots that hold spatial information.</p></li>
+</ul></li>
+</ul>
+<p><em>You can learn more about simple features and the <strong>sf</strong> package <a href="https://r-spatial.github.io/sf/articles/sf1.html">here.</a></em></p>
 </section>
-<section id="installing-r-and-rstudio" class="slide level2">
-<h2>Installing R and RStudio</h2>
+<section id="reading-and-writing-functions-in-sf" class="slide level2">
+<h2>Reading and writing functions in <strong>sf</strong></h2>
+<ul>
+<li><strong>sf</strong> uses the Geospatial Data Abstraction Library (GDAL)</li>
+<li>Use <strong>st_read</strong> to import all spatial data</li>
+<li>Use <strong>st_write</strong> to export all spatial data</li>
+<li>The filetype indicates the type of file you want to write to your computer - called the driver
+<ul>
+<li>This will most likely be either a shapefile (.shp) or geojson (.geojson)</li>
+</ul></li>
+</ul>
 </section>
-<section id="installing-git" class="slide level2">
-<h2>Installing Git</h2>
+<section id="conversion-function-in-sf" class="slide level2">
+<h2>Conversion function in <strong>sf</strong></h2>
+<p>Convert a data frame with x and y to a <strong>simple feature</strong> using <strong>st_as_sf()</strong></p>
+<ul>
+<li><strong>dataframe</strong></li>
+<li><strong>coords</strong>: The columns that define x (latitude) and y (longtitude)</li>
+<li><strong>crs</strong>: The coordinate system that translates x and y to a location on Earth</li>
+</ul>
+</section></section>
+<section id="lets-use-sf-together-in-class-exercise-use-simple-feature-objects-with-sf-13" class="title-slide slide level1 center">
+<h1>Let’s use <strong>sf</strong> together! In-class exercise Use simple feature objects with <strong>sf</strong> (1/3)</h1>
+<p><strong>STEP 1:</strong> At the top of your script, load the <strong>sf</strong> package into your environment.</p>
+<p><strong>Note:</strong> GEOS and GDAL are loaded when you load <strong>sf</strong> into your environment. They are the backbone spatial analysis and visualization in R.</p>
 </section>
-<section id="register-for-github" class="slide level2">
-<h2>Register for GitHub</h2>
+
+<section id="lets-use-sf-together-in-class-exercise-use-simple-feature-objects-with-sf-23" class="title-slide slide level1 center">
+<h1>Let’s use <strong>sf</strong> together! In-class exercise Use simple feature objects with <strong>sf</strong> (2/3)</h1>
+<p><strong>STEP 2:</strong> Turn the Minnesota schools csv file into an sf object using the st_as_sf() function.</p>
+<p>Note: the <strong>sf</strong> data frame looks like a regular data frame except:</p>
+<ul>
+<li>The lat and long colums have become one geometry column</li>
+<li>Two slots have been added: <strong>sf_column</strong> and <strong>agr</strong>
+<ul>
+<li>These define the geomtry column and how it relates to the attributes</li>
+</ul></li>
+</ul>
 </section>
-<section id="connecting-rstudio-and-github" class="slide level2">
-<h2>Connecting RStudio and GitHub</h2>
+
+<section>
+<section id="lets-use-sf-together-in-class-exercise-use-simple-feature-objects-with-sf-33" class="title-slide slide level1 center">
+<h1>Let’s use <strong>sf</strong> together! In-class exercise Use simple feature objects with <strong>sf</strong> (3/3)</h1>
+<p><strong>Step 3:</strong> Check the projection of your objects using the <strong>st_crs()</strong> function. This returns the coordinate system that R has assumed.</p>
+<p>The two mapping systems:</p>
+<ul>
+<li><strong>World Geodetic System of 1984:</strong> Most common and good for mapping global data.</li>
+<li><strong>North American Datum of 1983:</strong> Good for mapping in the United States.</li>
+</ul>
 </section>
-<section id="joining-our-github-classroom" class="slide level2">
-<h2>Joining our GitHub Classroom</h2>
+<section id="overview-of-leaflet-package" class="slide level2">
+<h2>Overview of <strong>leaflet</strong> package</h2>
+<p><strong>leaflet</strong> is an interactive mapping package</p>
+<ul>
+<li>The <strong>leaflet()</strong> function creates a blank, interactive map canvas in your RStudio viewer pane</li>
+<li>Based on <strong>leaflet.js</strong>, which is a javascript library
+<ul>
+<li>Most common library for making web maps</li>
+</ul></li>
+<li>You can add elements to the map canvas using the generic <strong>addControl()</strong> function:
+<ul>
+<li><strong>addProviderTiles():</strong> Adds a basemap</li>
+<li><strong>addCirclemarker():</strong> and <strong>addMarker():</strong> Adds a point layer</li>
+<li><strong>addPolylines():</strong> Adds a line layer</li>
+<li><strong>addPolygons():</strong> Add a polygon layer</li>
+</ul></li>
+</ul>
+</section>
+<section id="map-location-with-leaflet" class="slide level2">
+<h2>Map location with <strong>leaflet</strong></h2>
+<p>Once a year is added, the map will automatically zoom to the boundaries of the data you’ve included in your layer. This is also referred to as the extent of the layer.</p>
+<ul>
+<li>To change the boundaries you’ve included in your layer</li>
+<li>To center the map on a point and define the zoom level</li>
+</ul>
+</section>
+<section id="in-class-exercise-view-minnesota-schools-on-a-map-with-leaflet-15" class="slide level2">
+<h2>In-class exercise: View Minnesota schools on a map with <strong>leaflet</strong> (1/5)</h2>
+<p><strong>STEP 1:</strong> At the top of your script make sure that <strong>tidyverse</strong>, <strong>sf</strong>, and <strong>leaflet</strong> are all installed and loaded.</p>
+<p><strong>STEP 2:</strong> Create leaflet map wtih a baselayer</p>
+</section>
+<section id="in-class-exercise-view-minnesota-schools-on-a-map-with-leaflet-25" class="slide level2">
+<h2>In-class exercise: View Minnesota schools on a map with <strong>leaflet</strong> (2/5)</h2>
+<p><strong>STEP 3:</strong> Add Minnesota schools to the map and let the map define the view by the extent to the point layer.</p>
+</section>
+<section id="in-class-exercise-view-minnesota-schools-on-a-map-with-leaflet-35" class="slide level2">
+<h2>In-class exercise: View Minnesota schools on a map with <strong>leaflet</strong> (3/5)</h2>
+<p><strong>STEP 4:</strong> Define the size of the circles by enrollment</p>
+</section>
+<section id="in-class-exercise-view-minnesota-schools-on-a-map-with-leaflet-45" class="slide level2">
+<h2>In-class exercise: View Minnesota schools on a map with <strong>leaflet</strong> (4/5)</h2>
+<p><strong>STEP 5:</strong> Color the points by Title 1 school status</p>
+</section>
+<section id="there-are-many-other-parameters-you-can-use-to-style-your-leaflet-map" class="slide level2">
+<h2>There are many other parameters you can use to style your <strong>leaflet</strong> map</h2>
+<ul>
+<li><strong>stroke:</strong> Outline of the circles or polygons</li>
+<li><strong>color:</strong> Outline color</li>
+<li><strong>weight:</strong> Thickness of the outline</li>
+<li><strong>opacity:</strong> Transparency of the outline - 0 (transparent) to 1 (opaque)</li>
+<li><strong>fill:</strong> Inside of the circle or polygon</li>
+<li><strong>fillcolor:</strong> Inside color</li>
+</ul>
+<p>You can define colors with the hex code or by calling one of the color names included in base R</p>
+</section>
+<section id="adding-a-popup-to-your-leaflet-map" class="slide level2">
+<h2>Adding a popup to your <strong>leaflet</strong> map</h2>
+<p>The <strong>popup</strong> parameter defines the text that displays when you clock on an object in your <strong>leaflet</strong> map - Combine it with the text using <strong>paste()</strong> function</p>
+</section>
+<section id="there-are-a-few-considersations-when-adding-the-popup-parameter" class="slide level2">
+<h2>There are a few considersations when adding the <strong>popup</strong> parameter</h2>
+<ul>
+<li>Make usre tha tyou put the text within quotes</li>
+<li>Use <strong>dataframe$</strong> to call the variables you want to use</li>
+<li><br> is the break html tag, which starts a new line</li>
+</ul>
+</section>
+<section id="in-class-exercise-view-minnesota-schools-on-a-map-with-leaflet-55" class="slide level2">
+<h2>In-class exercise: View Minnesota schools on a map with <strong>leaflet</strong> (5/5)</h2>
+<p><strong>STEP 6:</strong> Add a <strong>popup</strong> with the schoo name to your Georgia leaflet</p>
+</section></section>
+<section>
+<section id="small-group-mapping" class="title-slide slide level1 center">
+<h1>Small group mapping</h1>
+
+</section>
+<section id="state-group-activity-making-maps-in-leaflet" class="slide level2">
+<h2>State Group Activity: Making maps in <strong>leaflet</strong>!!</h2>
+<ul>
+<li>In your state teams, use the cleaned data in the folder to create a leaflet map for your state!</li>
+<li>Play around with the colors, sizing, and popups.</li>
+<li>Be prepared for at least one person in your group to share their map!</li>
+</ul>
+<p>Alex and Krista will be circulating to answer questions! Feel free to also come back into the main room if you have questions!</p>
+</section></section>
+<section id="break" class="title-slide slide level1 center">
+<h1>Break</h1>
+
+</section>
+
+<section>
+<section id="making-maps-with-edbuildr-data" class="title-slide slide level1 center">
+<h1>Making maps with edbuildr data</h1>
+
+</section>
+<section id="overview-of-edbuildr" class="slide level2">
+<h2>Overview of <strong>edbuildr</strong></h2>
+<ul>
+<li>The goal of <strong>edbuildr</strong> is to import EdBuild’s master data set that includes school district finance, student demographics, and community economic indicators for every school district in the United States.</li>
+<li>The master data set is available for any school year from 2013-2019 or longitudinally for all years 2013-2019.
+<ul>
+<li>School year is identified by the end year. For example, the 2018-19 school year is 2019.</li>
+</ul></li>
+<li>The master data set is built from the:
+<ul>
+<li><p>US Census,</p></li>
+<li><p>Annual Survey of School System Finances (F33), and</p></li>
+<li><p>joins data from the National Center for Education Statistics, Common Core of Data, Small Area Income and Poverty Estimates, and Education Demographic and Geographic Estimates.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="in-class-exercise-building-a-minnesota-map-with-edbuildr-data-16" class="slide level2">
+<h2>In-class exercise: Building a Minnesota map with <strong>edbuildr</strong> data (1/6)</h2>
+<p><strong>STEP 1:</strong> Load in the <strong>edbuildr</strong> and <strong>edbuildmapr</strong> packages.</p>
+<p><strong>STEP 2:</strong> Pull the school district mapping data and filter out the data for Minnesota.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `shapefile_1819' from data source 
+  `/private/var/folders/25/5vf1tf0164x0sv9_4xgtq9040000gn/T/Rtmp5iL66N/filec0cf5e791d1a/shapefile_1819.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 13315 features and 6 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -179.1686 ymin: -14.54858 xmax: 179.7487 ymax: 71.38961
+Geodetic CRS:  NAD83</code></pre>
+</div>
+</div>
+</section>
+<section id="in-class-exercise-building-a-minnesota-map-with-edbuildr-data-26" class="slide level2">
+<h2>In-class exercise: Building a Minnesota map with <strong>edbuildr</strong> data (2/6)</h2>
+<p><strong>STEP 3:</strong> Pull and clean the Minnesota data from the <strong>edbuildr</strong> data</p>
+</section>
+<section id="in-class-exercise-building-a-minnesota-map-with-edbuildr-data-36" class="slide level2">
+<h2>In-class exercise: Building a Minnesota map with <strong>edbuildr</strong> data (3/6)</h2>
+<p><strong>STEP 4:</strong> Join the <strong>mn_shp</strong> and the <strong>mn_data</strong></p>
+</section>
+<section id="in-class-exercise-building-a-minnesota-map-with-edbuildr-data-46" class="slide level2">
+<h2>In-class exercise: Building a Minnesota map with <strong>edbuildr</strong> data (4/6)</h2>
+<p><strong>STEP 5:</strong> Plot the Minnesota map!</p>
+<p>While the map looks ok, there is a lot we can improve! Intuitively, it makes more sense for the color to get darker as the concentrations increase. In the next iteration, I am going to reverse the direction of the color scale, change the line colors to white, and add a title and a source.</p>
+
+<img data-src="week_07_slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="in-class-exercise-building-a-minnesota-map-with-edbuildr-data-56" class="slide level2">
+<h2>In-class exercise: Building a Minnesota map with <strong>edbuildr</strong> data (5/6)</h2>
+<p><strong>STEP 6:</strong> Make several aesthetic changes:</p>
+<ul>
+<li>Change the color of the lies to white within <strong>geom_sf()</strong></li>
+<li>Reverse the direction of the color scale within <strong>scale_fill_viridis()</strong></li>
+<li>Add a title, subtitle, and a source caption within <strong>label()</strong></li>
+</ul>
+
+<img data-src="week_07_slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section></section>
+<section id="small-group-mapping-1" class="title-slide slide level1 center">
+<h1>Small group mapping</h1>
+
+</section>
+
+<section id="homework" class="title-slide slide level1 center">
+<h1>Homework</h1>
 
 
 <img src="../../images/primary_full-color.png" class="slide-logo r-stretch"><div class="footer footer-default">
@@ -371,6 +588,7 @@
   <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -392,7 +610,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -563,7 +782,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -572,6 +791,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
