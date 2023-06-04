@@ -1,0 +1,394 @@
+---
+title: "Introduction to Education Finance Equity & R"
+date: "June 6, 2023"
+format: 
+  revealjs:
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| output: false
+
+
+library(tidyverse)
+library(tigris)
+library(sf)
+library(scales)
+
+
+bw_primary <- c("#6D1E4A", # 1 plum
+                "#007786", # 2 teal
+                "#0D525A", # 3 dark green
+                "#212B46", # 4 navy
+                "#5A6675", # 5 grey
+                "#F0DEC1") # 6 cream
+
+bw_secondary <- c("#FFC762", # 1 yellow
+                  "#FFB653", # 2 orange
+                  "#BEC6CE", # 3 light grey
+                  "#2E1A4A", # 4 deep purple
+                  "#7EA2D1", # 5 soft blue
+                  "#CAD3FB", # 6 lavender
+                  "#9CD4EA", # 7 sky
+                  "#FFA497") # 8 peach
+
+
+
+us_states_raw <- states(resolution = "20m", cb = TRUE) 
+
+us_states <- us_states_raw |> 
+  filter(GEOID < 60) |> 
+  shift_geometry() 
+
+summer23 <- tibble(STUSPS = c("PA", "DE", "AL", "MI", "GA","NY",
+                              "MS",
+                              "CO","CA", "IL", "IN",
+                              "OH", "MN","TN", "FL"),
+                   status = c(rep("Cohort 3", 7),
+                             
+                              rep("Cohort 2", 4),
+                              rep("Cohort 1", 4))) |> 
+  mutate(status = factor(status))
+
+summer23_states <- us_states |> 
+  left_join(summer23, by = "STUSPS")
+
+```
+
+# Agenda
+
+-   Introductions (15 min)
+
+-   Course Overview (10 min)
+
+-   Introduction to Education Funding Policy (30 min)
+
+-   Introduction to R and RStudio (20 min)
+
+-   Break (10 min)
+
+-   An introduction to the R programming language (15 min)
+
+-   RStudio Setup and Workflow Tips (15 min)
+
+-   Homework assignment (5 min)
+
+## Meet your instructors {.smaller}
+
+::: columns
+::: {.column width="50%" style="text-align: center"}
+![](img/spurrier.jpg){.instructor-img fig-align="center"}
+
+**Alex Spurrier**, Associate Partner
+
+<br>
+
+![](img/schiess.jpg){.instructor-img fig-align="center"}
+
+**Jennifer Schiess**, Senior Partner & Policy and Evaluation Practice Leader
+:::
+
+::: {.column width="50%" style="text-align: center"}
+![](img/kaput.jpg){.instructor-img fig-align="center"}
+
+**Krista Kaput**, Senior Analyst
+
+<br>
+
+![](img/okeefe.jpg){.instructor-img fig-align="center"}
+
+**Bonnie O'Keefe**, Senior Associate Partner
+:::
+:::
+
+## Your cohort is part of a growing network of education finance advocates
+
+```{r}
+
+ggplot(summer23_states, aes(fill = status)) +
+  geom_sf(color = "white") +
+  scale_fill_manual(values = c(
+                               bw_primary[3], 
+                               bw_primary[2], 
+                               bw_secondary[2]),
+                    na.value = bw_secondary[3]) +
+  labs(fill = "Training\nCohort") +
+  theme_void() +
+  theme(text = element_text(family = "Avenir"))
+```
+
+## Getting to know Cohort 3
+
+::: columns
+::: {.column width="50%"}
+![](https://media.giphy.com/media/XDYIuWmMqeEKmqEfEp/giphy.gif){fig-align="center" width="450"}
+:::
+
+::: {.column width="50%"}
+Please share your:
+
+-   Name
+-   State
+-   Organization
+-   Role
+-   Any prior experience with R?
+-   Why did you take this course?
+:::
+:::
+
+# Course Overview
+
+## Goals for this course
+
+::: {.callout style="background: #BEC6CE"}
+Our primary goal is to prepare advocates to leverage data analysis and policy knowledge to advocate effectively for school finance reforms that can improve the educational success of historically underserved students.
+:::
+
+We will achieve this by helping you:
+
+-   Learn R for data analysis and visualization
+
+-   Develop an understanding of K-12 school funding policies nationally and deep understanding of your state's system, specifically
+
+-   Use R to support in-depth education finance analysis that is:
+
+    -   Organized
+
+    -   Well-documented
+
+    -   Reproducible
+
+-   Produce high-quality, effective data visualizations to make your analysis a more powerful, easy-to-understand tool for advocacy
+
+## Course website and class structure
+
+::: columns
+::: {.column width="50%"}
+[**Course website**](https://bwedfinance.github.io/training_summer2023/)
+
+-   Schedule
+-   Slides
+-   Homework
+-   Lecture recordings
+:::
+
+::: {.column width="50%"}
+**Class structure**
+
+-   Review homework (15 min)
+-   Lecture (60 min)
+-   Break (10 min)
+-   In-class exercise (30 min)
+-   Homework (5 min)
+:::
+:::
+
+## Course calendar {.smaller}
+
+| Week | Class Date | Detail                                         |
+|:----:|------------|------------------------------------------------|
+|  1   | June 6     | Introduction to education finance equity and R |
+|  2   | June 13    | Basic data analysis and visualization in R     |
+|  3   | June 20    | Deep-dive on education finance policy          |
+|  4   | June 27    | Data cleaning and processing in R              |
+|  5   | July 4     | NO CLASS THIS WEEK                             |
+|  6   | July 11    | Reproducible data analysis in R                |
+|  7   | July 18    | Mapping in R, part 1                           |
+|  8   | July 25    | Mapping in R, part 2                           |
+|  9   | August 1   | Building interactive visualizations            |
+|  10  | August 8   | Modeling state funding policy proposals in R   |
+|  11  | August 15  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  12  | August 22  | OFFICE HOURS --- CAPSTONE WORK WEEK            |
+|  13  | August 29  | Capstone presentations                         |
+
+# Introduction to Education Finance Policy
+
+## Key goals of funding reform: adequacy and equity
+
+School funding systems are typically assessed on two fronts: **adequacy** and **equity**.
+
+- Adequacy: Is there **enough funding**?
+
+- Equity: Is the funding **distribution aligned with student needs**?
+
+## Why does education finance equity matter?
+
+::: {.callout}
+The longstanding and persistent reality is that vast funding inequities in our state public education systems render the education available to millions of American public school students profoundly unequal." 
+
+-- U.S. Commission on Civil Rights, 2018
+:::
+
+School finance equity is a critical component of educational equity overall. In an equitable school finance system, schools would receive funds they need to provide a high-quality education for all students. School funding should be based on the needs of students, not the property wealth of individual communities or a checklist of programs.
+
+**Across the country, almost no states have fully achieved this goal.**
+
+Inequity in school finance holds back countless other efforts to improve educational outcomes. Achieving both adequacy (enough funding) and equity (funding distributed to where it is most needed) will not solve every educational problem, but it will enable more schools to provide their students with an excellent education.
+
+## Follow the money: where does it all come from?
+
+```{r}
+
+rev_source_sy20 <- tibble(rev_source = c("Federal", "State", "Local"),
+                          rev_pct = c(7.6,	47.5,	44.9),
+                          rev_label = c("7.6%",	"47.5%",	"44.9%")) |> 
+  mutate(rev_source = factor(rev_source, levels = c("State", "Local", "Federal")))
+
+ggplot(rev_source_sy20,
+       aes(x = "", y = rev_pct, fill = rev_source)) + 
+  geom_col() +
+  geom_text(aes(label = rev_label),
+             color = "white",
+             position = position_stack(vjust = 0.5),
+             show.legend = FALSE) +
+  coord_polar("y", start=0) +
+  labs(fill = "Revenue Source",
+       title = "K-12 School Revenue by Source, 2019-20") +
+  scale_fill_manual(values = c(bw_primary[3], bw_primary[2], bw_primary[1])) + 
+  theme_void()+
+  theme(text = element_text(family = "Avenir", size = 16))
+
+```
+
+::: aside
+Source: [NCES](https://nces.ed.gov/programs/digest/d22/tables/dt22_235.10.asp)
+:::
+
+## Follow the money: where does it all come from?
+
+::: panel-tabset
+### Local revenue
+
+-   Large share of K-12 funding.
+
+-   Relatively stable (property taxes).
+
+-   Inherently inequitable.
+
+### State revenue
+
+-   Large share of K-12 funding, tending to direct more to higher-need districts,
+
+-   More volatile revenue sources compared to property taxes (income, sales, etc. taxes).
+
+-   Intended to address inequities in local revenue, but rarely achieves that goal.
+
+### Federal revenue
+
+-   Relatively small share of K-12 funding.
+
+-   Majority of federal dollars are allocated through to serve low-income students (Title I) and students with special learning needs (IDEA), along with other specific funding streams like school meal programs.
+
+-   In recent decades, there have been waves of stimulus funding directed at K-12 schools in the wake of the Great Recession and the COVID-19 pandemic.
+:::
+
+## State funding formulas *should* try to balance the scales, but they're already starting from behind
+
+State school funding formulae generally try to achieve a few objectives:
+
+-   Distribute state funds
+-   Balance the scales for lower-wealth and/or higher-need districts that cannot easily generate sufficient local revenue to educate their students
+-   Set guardrails on local funding to reduce inequities generated by wealthier districts (sometimes)
+
+## Equity should be the primary goal for states' funding formulae, but it's a massive challenge that varies from state to state
+
+These factors drive the complexity of building a well-functioning state funding formula:
+
+-   Number of districts
+-   Range of economic disparities between school districts
+-   Student population size and learning needs
+-   Geographical features (concentrated poverty, rurality, etc.)
+-   **Political dis-incentives to change**
+
+## There are many ways to measure within-state inequities in funding, but it’s a big issue {.smaller}
+
+[EdBuild, 2015](http://viz.edbuild.org/maps/2016/cola/resource-inequality/#_ftn2):
+
+>“On average, high-poverty school districts in each state receive 5%, or $500 less per student than wealthy ones do. Some states are much, much worse...In only six states do students in high-poverty districts receive at least 10% more funding than those in low-poverty districts.” 
+
+[The Education Trust, 2018](https://edtrust.org/resource/funding-gaps-2018/):
+
+> “School districts serving the largest populations of Black, Latino, or American Indian students receive roughly $1,800, or 13 percent, less per student in state and local funding than those serving the fewest students of color.” 
+
+[Rutgers University and the Albert Shanker Institute, 2021](https://www.schoolfinancedata.org/wp-content/uploads/2021/03/SFID_DCDbrief_Mar2021.pdf):
+
+> “Spending in most states’ high-poverty districts is below our estimated required levels, while spending in low-poverty districts is typically above the targets...even in states where, according to our estimates, funding overall seems to be adequate across poverty groups, there are still districts left behind.”
+
+## We are focused on inequities at the district level, where state laws shape funding distribution
+
+
+Relying on local property taxes to fund local schools (as most states do) ties school funding closely to housing and property wealth, fueling disparities in funding by race, ethnicity, and class --- **unless states act to balance the scales.**
+
+:::{.callout}
+
+**Example**
+
+- Taxable property wealth in Bridgeport, Connecticut, is equivalent to more than **$500,000 per pupil**.
+- Neighboring Fairfield, Connecticut, has nearly **$2 million in taxable property wealth per pupil**. 
+- For these communities to generate the same amount of per-pupil funding for their local public schools, Bridgeport would need to tax itself at a significantly higher rate than Fairfield. So lower wealth communities often pay taxes at a higher rate to generate less funds than their neighbors. 
+- And districts like Bridgeport with lower property wealth and higher-needs students rely on states to fill the gap. Which doesn't always happen.
+:::
+
+**Proposals to address that challenge** – changing structuring funding formulas to align with student needs rather than political clout – **face huge barriers**.
+
+## How can we assess state funding policies?
+
+School finance reform is often prompted by court action (or the potential for court action). School finance litigation has historically focused on one or both of two standards:
+
+- Adequacy: Is there enough funding in the system to enable schools to meet the state’s educational mandate?
+- Equity: Are resources distributed fairly across communities?
+
+Our working framework for assessing state finance policies considers four principles:
+
+:::panel-tabset
+
+### Adequacy
+
+Is enough funding generated to support high-quality educational opportunities for all students?
+
+### Equity
+
+Is funding distributed to account for differences in student and community need?
+
+### Transparency
+
+Can the public easily access funding data and formula documentation?
+
+### Responsiblity
+
+Are state policymakers empowered to adjust state funding formulas to account for changing student and community needs?
+
+:::
+
+
+
+# Introduction to R and RStudio
+
+## What is R?
+
+## How the language works
+
+## What is RStudio?
+
+# Break
+
+# RStudio Setup and Workflow Tips
+
+# Introduction to Git and GitHub
+
+## What is git?
+
+## What is GitHub?
+
+## What is GitHub Classroom?
+
+# Homework
+
+## This week's assignment
+
+## Helpful resources
