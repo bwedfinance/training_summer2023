@@ -382,6 +382,20 @@ But that structure alone will not ensure equity and adequacy.
 | **Program-based**  | This system allocates dollars to school districts based on the cost of educational programs within those districts.                                                                                                                                                                                                                                          |
 | **Resource-based** | School districts receive funding based on the anticipated cost of resources and inputs, such as staff salaries and instructional materials.                                                                                                                                                                                                                  |
 
+## School finance reform efforts can be helped -- or hindered -- by several conditions in your state
+
+| **Condition**         | **Questions to consider in your state**                                                                                         |
+|---------------|---------------------------------------------------------|
+| **Coalitions**        | Are there aligned and influential advocates and/or coalitions?                                                    |
+| **Champions**         | Is there political appetite for funding reform in the state?                                                      |
+| **Research capacity** | Is there sufficient evidence and technical capacity in the state to make the case for and advance funding reform? |
+| **State finances**    | Is the fiscal situation in the state conductive to K-12 funding reform?                                           |
+| **Lawsuits**          | Could funding reform be aided by current or past litigation?                                                      |
+
+:::aside
+Source: [Making Change](https://bellwether.org/wp-content/uploads/2023/02/MakingChange_Bellwether_January2023.pdf)
+:::
+
 ## Advocates need to be at the table with good data to help more stated adopt better funding formulas
 
 Too many states have outdated, inequitable, and/or inadequate school funding formulas, created over the course of decades of political compromise, intentionally complex and opaque, understood by a select few with disincentives to change.
