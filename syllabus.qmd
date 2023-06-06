@@ -15,14 +15,14 @@ By the end of the course, you will...
 
 -   Visualize analysis of education finance data and export the results as static or interactive tables, plots, and maps.
 
--   Learn principles of how to leverage [NCES](https://nces.ed.gov/ccd/) and [census](https://walker-data.com/tidycensus/) data to assess and compare equity in education revenue and model the impact of changes in revenue.
+-   Learn principles of how to leverage [NCES](https://nces.ed.gov/ccd/) and [U.S. Census](https://walker-data.com/tidycensus/) data to assess and compare equity in education revenue and model the impact of changes in revenue.
 
 -   Complete a capstone project that shows the potential impact of changes to the school funding formula in participants' states.
 
 ## Reading List
 
 | Title                                                                                                                                                  | Authors                                  | Source                                          |
-|----------------------------------------|----------------|----------------|
+|--------------------------------------|-----------------|-----------------|
 | [R for Data Science](http://r4ds.had.co.nz/)                                                                                                           | Wickham, Grolemund, Çetinkaya-Rundel     | [GitHub](https://github.com/hadley/r4ds/), 2023 |
 | [Splitting the Bill: Understanding Education Finance Equity](https://bellwether.org/publications/splitting-the-bill/)                                  | Spurrier, Dammu, O'Keefe, O'Neal Schiess | Bellwether, 2022                                |
 | [Balancing Act: How States Can Address Local Wealth Inequity in Education Finance](https://bellwether.org/publications/balancing-act/)                 | Dammu, O'Keefe, O'Neal Schiess           | Bellwether, 2022                                |
