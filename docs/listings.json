@@ -6,8 +6,11 @@
       "/weeks/week_02.html",
       "/weeks/week_03.html",
       "/weeks/week_04.html",
+      "/weeks/week_05.html",
       "/weeks/week_06.html",
-      "/weeks/week_07.html"
+      "/weeks/week_07.html",
+      "/weeks/week_08.html",
+      "/weeks/week_09.html"
     ]
   },
   {
@@ -28,8 +31,30 @@
   },
   {
     "listing": "/weeks/week_03.html",
-    "items": [
-      "/slides/week_03/week_03_slides.html"
-    ]
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_07.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_06.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_04.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_05.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_08.html",
+    "items": []
+  },
+  {
+    "listing": "/weeks/week_09.html",
+    "items": []
   }
 ]
