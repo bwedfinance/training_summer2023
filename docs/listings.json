@@ -2,17 +2,18 @@
   {
     "listing": "/schedule.html",
     "items": [
-      "/weeks/week_00.html",
       "/weeks/week_01.html",
       "/weeks/week_02.html",
       "/weeks/week_03.html",
-      "/weeks/week_04.html"
+      "/weeks/week_04.html",
+      "/weeks/week_06.html",
+      "/weeks/week_07.html"
     ]
   },
   {
     "listing": "/weeks/week_01.html",
     "items": [
-      "/slides/week_01/test.html"
+      "/slides/week_01/week_01_course_intro.html"
     ]
   },
   {
@@ -23,10 +24,7 @@
   },
   {
     "listing": "/weeks/week_02.html",
-    "items": [
-      "/slides/week_02/week_02_ggplot_slides.html",
-      "/slides/week_02/week_02_slides.html"
-    ]
+    "items": []
   },
   {
     "listing": "/weeks/week_03.html",

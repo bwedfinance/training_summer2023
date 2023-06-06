@@ -264,5 +264,75 @@
     "title": "Course Schedule",
     "section": "Capstone Project",
     "text": "Capstone Project\nCourse participants will have several weeks to complete their capstone project. The teaching team will host office hours to provide targeted support to course participants as they work on their capstone projects."
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#bullet-point-list",
+    "href": "slides/week_01/week_01_course_intro.html#bullet-point-list",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "Bullet point list",
+    "text": "Bullet point list\n\n\ncontents…\n\nitem 1\nitem 2\nitem 3\n\n\nMore text\n\nitem 4\nitem 5\nitem 6"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#test-slide",
+    "href": "slides/week_01/week_01_course_intro.html#test-slide",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "Test slide",
+    "text": "Test slide\n\nlibrary(tidyverse)\nggplot(mtcars, aes( x= hp, y = mpg)) +\n  geom_point() + \n  theme_bw()"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#what-is-r",
+    "href": "slides/week_01/week_01_course_intro.html#what-is-r",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "What is R?",
+    "text": "What is R?"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#how-the-language-works",
+    "href": "slides/week_01/week_01_course_intro.html#how-the-language-works",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "How the language works",
+    "text": "How the language works"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#what-is-rstudio",
+    "href": "slides/week_01/week_01_course_intro.html#what-is-rstudio",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "What is RStudio?",
+    "text": "What is RStudio?\n\n\nColumn 1\n\nColumn 2"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#what-is-git",
+    "href": "slides/week_01/week_01_course_intro.html#what-is-git",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "What is git?",
+    "text": "What is git?"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#what-is-github",
+    "href": "slides/week_01/week_01_course_intro.html#what-is-github",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "What is GitHub?",
+    "text": "What is GitHub?"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#what-is-github-classroom",
+    "href": "slides/week_01/week_01_course_intro.html#what-is-github-classroom",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "What is GitHub Classroom?",
+    "text": "What is GitHub Classroom?"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#this-weeks-assignment",
+    "href": "slides/week_01/week_01_course_intro.html#this-weeks-assignment",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "This week’s assignment",
+    "text": "This week’s assignment"
+  },
+  {
+    "objectID": "slides/week_01/week_01_course_intro.html#helpful-resources",
+    "href": "slides/week_01/week_01_course_intro.html#helpful-resources",
+    "title": "Intro to R, RStudio, and GitHub",
+    "section": "Helpful resources",
+    "text": "Helpful resources"
   }
 ]

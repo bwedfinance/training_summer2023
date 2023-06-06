@@ -24,7 +24,7 @@ Participants will:
 
 -   Visualize analysis of education finance data and export the results as static or interactive tables, plots, and maps.
 
--   Learn principles of how to leverage [NCES](https://nces.ed.gov/ccd/) and [census](https://walker-data.com/tidycensus/) data to assess and compare equity in education revenue and model the impact of changes in revenue.
+-   Learn principles of how to leverage [NCES](https://nces.ed.gov/ccd/) and [U.S. Census](https://walker-data.com/tidycensus/) data to assess and compare equity in education revenue and model the impact of changes in revenue.
 
 -   Complete a capstone project that shows the potential impact of changes to the school funding formula in participants' states.
 

@@ -25,7 +25,8 @@ format:
     toc: true
   revealjs:
     logo: images/primary_full-color.png
-    theme: theme/custom.scss
+    theme: theme/slides.scss
+
     
     
     
