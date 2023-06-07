@@ -26,6 +26,10 @@ format: html
 ::: {#slides}
 :::
 
+## Lecture recording
+
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/833834425?share=copy). Please refer to the post-class email for the password that will allow you to access the recording. 
+
 ## Coding Assignment
 
 Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw01-`.
