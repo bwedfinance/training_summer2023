@@ -709,7 +709,7 @@ ggplot(data = state_summary) +
 
 # Homework
 
-## This week's assignment
+## This week's assignment {.smaller}
 
 **Reading assignment**
 
