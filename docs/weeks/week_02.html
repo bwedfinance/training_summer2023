@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -159,7 +159,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#lecture-recording" id="toc-lecture-recording" class="nav-link" data-scroll-target="#lecture-recording">Lecture recording</a></li>
+  <li><a href="#coding-assignment" id="toc-coding-assignment" class="nav-link" data-scroll-target="#coding-assignment">Coding Assignment</a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   </ul>
 </nav>
@@ -206,6 +207,14 @@ Date
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1686628800000" data-listing-file-modified-sort="1686662266470" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-title-sort="Basic Data Analysis and Visualization in R" data-listing-filename-sort="week_02_ggplot_slides.qmd">
+<td>
+<a href="../slides/week_02/week_02_ggplot_slides.html" class="title listing-title">Basic Data Analysis and Visualization in R</a>
+</td>
+<td>
+<span class="listing-date">Jun 13, 2023</span>
+</td>
+</tr>
 </tbody>
 
 </table>
@@ -214,13 +223,19 @@ No matching items
 </div>
 </div>
 </section>
-<section id="assignment" class="level2">
-<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<p>Coming soon…</p>
+<section id="lecture-recording" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-recording">Lecture recording</h2>
+<p>The Zoom recording from our class is <a href="">available on Vimeo here</a>. Please refer to the post-class email for the password that will allow you to access the recording.</p>
+</section>
+<section id="coding-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="coding-assignment">Coding Assignment</h2>
+<p>Homework now available <a href="https://github.com/orgs/bw-training-summer23/repositories">on our class GitHub page</a> as a repo that starts with <code>hw02-</code>.</p>
 </section>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<p>Coming soon…</p>
+<ul>
+<li><a href="https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_06-LocalTaxesAndFinanceEquity_Final.pdf"><strong><em>How Do Local Taxes Affect School Finance Equity?</em></strong></a></li>
+</ul>
 
 
 

@@ -27,7 +27,9 @@
   },
   {
     "listing": "/weeks/week_02.html",
-    "items": []
+    "items": [
+      "/slides/week_02/week_02_ggplot_slides.html"
+    ]
   },
   {
     "listing": "/weeks/week_03.html",
