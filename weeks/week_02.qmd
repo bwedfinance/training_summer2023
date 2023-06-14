@@ -27,7 +27,7 @@ format: html
 
 ## Lecture recording
 
-The Zoom recording from our class is [available on Vimeo here](). Please refer to the post-class email for the password that will allow you to access the recording. 
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/835996475/). Please refer to the post-class email for the password that will allow you to access the recording. 
 
 ## Coding Assignment
 
