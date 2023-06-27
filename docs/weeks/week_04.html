@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -206,6 +206,14 @@ Date
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1687838400000" data-listing-file-modified-sort="1687872533859" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="33" data-listing-title-sort="Data cleaning and processing in R" data-listing-filename-sort="week_04_slides.qmd">
+<td>
+<a href="../slides/week_04/week_04_slides.html" class="title listing-title">Data cleaning and processing in R</a>
+</td>
+<td>
+<span class="listing-date">Jun 27, 2023</span>
+</td>
+</tr>
 </tbody>
 
 </table>

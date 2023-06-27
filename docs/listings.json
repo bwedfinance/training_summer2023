@@ -45,7 +45,9 @@
   },
   {
     "listing": "/weeks/week_04.html",
-    "items": []
+    "items": [
+      "/slides/week_04/week_04_slides.html"
+    ]
   },
   {
     "listing": "/weeks/week_05.html",
