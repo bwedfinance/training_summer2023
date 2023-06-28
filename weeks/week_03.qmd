@@ -4,33 +4,25 @@ subtitle: "Deep-dive on education finance and weighted student funding"
 description: "June 20"
 author: ""
 date: ""
-listing:
-  - id: slides
-    contents:
-      - ../slides/week_03/*.qmd
-    type: table
-    fields: [title, date]
-    field-display-names:
-      title: "Topic"
-      date: "Date"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-tbl-colwidths: [10,50,40]
 format: html
 
 ---
 
 ## Lecture
 
-::: {#slides}
-:::
+Slides for this class are attached to a post-class email --- please check your inboxes!
 
-## Assignment
+## Lecture recording
 
-Coming soon...
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/838120486). Please refer to the post-class email for the password that will allow you to access the recording. 
+
+## Coding Assignment
+
+Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw03-`.
 
 ## Readings
 
-Coming soon...
+-  [***"How Are State Education Funding Formulas Structured?"***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_03-HowStateFundStruc_Final.pdf)
+
+-  [***"What Are the Biggest Equity Problems in State Education Finance Systems?"***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_04-BiggestProblems_Final.pdf)
 
