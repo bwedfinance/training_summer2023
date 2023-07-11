@@ -305,3 +305,7 @@ R code chunks in R Markdown are contained within a pair of triple backticks that
 - Continue working on your `week04` assignment!
 - If you've completed a join of your first two datasets, add in the rest of the data you'll need to model your state's current funding formula
 - Two blocks of office hours will be available this week on Thursday and Friday to help with any data joining and/or cleaning challenges
+
+**Finance contact**
+
+- Please share the contact information for your organization's finance/operations lead by Friday, July 14. We will be contacting them next week regarding the grant funding we have available.
