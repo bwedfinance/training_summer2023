@@ -26,11 +26,8 @@ format: html
 ::: {#slides}
 :::
 
-## Assignment
-
-Coming soon...
-
 ## Readings
 
-Coming soon...
+-   [***What Should the Future of School Finance Equity Look Like?***](https://bellwether.org/wp-content/uploads/2021/10/Bellwether_SplittingBill_09-FutureEquity_Final.pdf)
+
 
