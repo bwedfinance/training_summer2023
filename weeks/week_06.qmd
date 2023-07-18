@@ -26,11 +26,11 @@ format: html
 ::: {#slides}
 :::
 
+## Reading
+
+-  [***Balancing Act: How States Can Address Local Wealth Inequity in Education Finance***](https://bellwether.org/publications/balancing-act/)
+
 ## Assignment
 
-Coming soon...
-
-## Readings
-
-Coming soon...
+Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw06-`.
 

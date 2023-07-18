@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -159,8 +159,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture">Lecture</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
   <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
   </ul>
 </nav>
     </div>
@@ -206,6 +206,14 @@ Date
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1689652800000" data-listing-file-modified-sort="1689704004747" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-title-sort="Mapping in R" data-listing-filename-sort="week_06_slides.qmd">
+<td>
+<a href="../slides/week_06/week_06_slides.html" class="title listing-title">Mapping in R</a>
+</td>
+<td>
+<span class="listing-date">Jul 18, 2023</span>
+</td>
+</tr>
 </tbody>
 
 </table>
@@ -214,13 +222,15 @@ No matching items
 </div>
 </div>
 </section>
+<section id="reading" class="level2">
+<h2 class="anchored" data-anchor-id="reading">Reading</h2>
+<ul>
+<li><a href="https://bellwether.org/publications/balancing-act/"><strong><em>Balancing Act: How States Can Address Local Wealth Inequity in Education Finance</em></strong></a></li>
+</ul>
+</section>
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<p>Coming soon…</p>
-</section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<p>Coming soon…</p>
+<p>Homework now available <a href="https://github.com/orgs/bw-training-summer23/repositories">on our class GitHub page</a> as a repo that starts with <code>hw06-</code>.</p>
 
 
 
