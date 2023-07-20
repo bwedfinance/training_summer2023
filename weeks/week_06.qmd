@@ -26,6 +26,11 @@ format: html
 ::: {#slides}
 :::
 
+
+## Lecture recording
+
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/manage/videos/844348866/). Please refer to the post-class email for the password that will allow you to access the recording. 
+
 ## Reading
 
 -  [***Balancing Act: How States Can Address Local Wealth Inequity in Education Finance***](https://bellwether.org/publications/balancing-act/)
