@@ -367,7 +367,7 @@ al_direct_funding <- formula_data24 |>
          textbooks_amount = textbooks * total_adm, 
   
   # total classroom instructional support 
-        textbooks_amount =  student_materials_amount + technology_amount + 
+        total_classroom_instructional_support =  student_materials_amount + technology_amount + 
                             library_enhancement_amount + professional_development_amount 
                             + textbooks_amount)
 
