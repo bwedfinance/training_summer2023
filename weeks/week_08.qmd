@@ -1,6 +1,6 @@
 ---
 title: "Week 08"
-subtitle: "Analyzing state education funding data with plotly"
+subtitle: "Education finance policy deep-dive, part 2"
 description: "August 1"
 author: ""
 date: ""

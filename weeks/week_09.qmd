@@ -1,6 +1,6 @@
 ---
 title: "Week 09"
-subtitle: "Modeling state funding policy proposals in R"
+subtitle: "Planning and executing your capstone project"
 description: "August 8"
 author: ""
 date: ""

@@ -1,6 +1,6 @@
 ---
 title: "Week 07"
-subtitle: "Mapping in R, part 2"
+subtitle: "Modeling state funding policy proposals in R"
 description: "July 25"
 author: ""
 date: ""
