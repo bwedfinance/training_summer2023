@@ -26,11 +26,15 @@ format: html
 ::: {#slides}
 :::
 
+
+## Lecture recording
+
+The Zoom recording from our class is [available on Vimeo here](https://vimeo.com/848541629). Please refer to the post-class email for the password that will allow you to access the recording. 
+
+## Reading
+
+-  [Priced Out of Public Schools: District Lines, Housing Access, and Inequitable Educational Options](https://bellwether.org/publications/priced-out/)
+
 ## Assignment
 
-Coming soon...
-
-## Readings
-
-Coming soon...
-
+Homework now available [on our class GitHub page](https://github.com/orgs/bw-training-summer23/repositories) as a repo that starts with `hw07-`.
