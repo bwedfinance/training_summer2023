@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -206,6 +206,14 @@ Date
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1690862400000" data-listing-file-modified-sort="1690915565676" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-title-sort="Modeling state funding policy changes in R" data-listing-filename-sort="week_08_slides.qmd">
+<td>
+<a href="../slides/week_08/week_08_slides.html" class="title listing-title">Modeling state funding policy changes in R</a>
+</td>
+<td>
+<span class="listing-date">Aug 1, 2023</span>
+</td>
+</tr>
 </tbody>
 
 </table>

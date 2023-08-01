@@ -61,7 +61,9 @@
   },
   {
     "listing": "/weeks/week_08.html",
-    "items": []
+    "items": [
+      "/slides/week_08/week_08_slides.html"
+    ]
   },
   {
     "listing": "/weeks/week_09.html",
